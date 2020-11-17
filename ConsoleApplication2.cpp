@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <random>
 #include <time.h>
 #include <locale.h>
@@ -75,7 +75,7 @@ void otoz(int s, int s1, int** mass, int n) { //отождествление
 	}
 
 	//выполняем отождествление и вывод матрицы
-	int** printmass = (int**)malloc(sizeof(int) * n);
+
 	for (int i = 0; i < n; i++) {
 		for (j = 0; j < n; j++) {
 			if (i == s || j == s) {
@@ -294,7 +294,7 @@ void kolz(int** mass_k1, int** mass_k2, int n, int n1) { //кольцевая с
 	}
 	printf("\n");
 
-	if (n > n1) { //выполнение операции
+	if (n >= n1) { //выполнение операции
 		for (i = 0; i < n1; i++) {
 			for (j = 0; j < n1; j++) {
 				if (mass_k1[i][j] != 1 && mass_k2[i][j] == 1 || mass_k2[i][j] != 1 && mass_k1[i][j] == 1) {
@@ -304,8 +304,8 @@ void kolz(int** mass_k1, int** mass_k2, int n, int n1) { //кольцевая с
 			}
 		}
 
-		for (i = 0; i < n; i++) {
-			for (j = 0; j < n; j++) {
+		for (i = 0; i < n1; i++) {
+			for (j = 0; j < n1; j++) {
 				printf("%d ", mass_k1[i][j]);
 			}
 			printf("\n");
@@ -322,8 +322,8 @@ void kolz(int** mass_k1, int** mass_k2, int n, int n1) { //кольцевая с
 		}
 
 		printf("Результат кольцевой суммы матриц:\n");
-		for (i = 0; i < n1; i++) {
-			for (j = 0; j < n1; j++) {
+		for (i = 0; i < n; i++) {
+			for (j = 0; j < n; j++) {
 				printf("%d ", mass_k2[i][j]);
 			}
 			printf("\n");
